@@ -2,8 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <math.h>
-#include "../../include/cell/Cell.hpp"
-#include "../../include/utility/Utility.hpp"
 
 class Agent{
     private:
@@ -37,7 +35,7 @@ class Agent{
 
         //custom functions
         void steer(sf::Vector2f desired){
-            desired = Utility::_unitVector(desired);
+            //desired = Utility::_unitVector(desired);
             desired *= 5.f;
 
             sf::Vector2f steer = desired - this->velocity;
