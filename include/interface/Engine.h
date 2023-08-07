@@ -17,6 +17,7 @@ class Engine{
         sf::Event event;
 
         //instantiating objects
+	Path path = Path(sf::Vector2f(100.f, 150.f), sf::Vector2f(500.f, 150.f));
 
         //mouse position
         sf::Vector2i mouse_position;
