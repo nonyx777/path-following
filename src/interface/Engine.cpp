@@ -32,6 +32,10 @@ void Engine::pollEvent(){
             case sf::Event::Closed:
                 this->window->close();
                 break;
+	    case sf::Event::MouseButtonPressed:
+		if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			this->placeAgent(this->mouse_position_view);
+		break;
         }
     }
 }
@@ -43,5 +47,13 @@ void Engine::update(){
 void Engine::render(){
     this->window->clear(sf::Color::Black);
     this->path.render(this->window);
+    for(Agent agent : this->agents)
+	    agent.render(this->window);
     this->window->display();
+}
+
+//defining custom functions
+void Engine::placeAgent(const sf::Vector2f position){
+	Agent agent = Agent(position);
+	this->agents.push_back(agent);
 }

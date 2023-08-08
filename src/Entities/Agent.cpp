@@ -9,12 +9,12 @@ class Agent{
 
     public:
         sf::CircleShape agent_property;
-        //constructor
-        Agent(){
+        //.....
+        Agent(const sf::Vector2f position){
             this->agent_property.setFillColor(sf::Color::White);
             this->agent_property.setRadius(1.f);
-            this->agent_property.setOrigin(10.f, 10.f);
-            this->agent_property.setPosition(600.f/2.f, 600.f/2.f);
+            this->agent_property.setOrigin(1.f, 1.f);
+            this->agent_property.setPosition(position);
         };
 
         //main ball functions

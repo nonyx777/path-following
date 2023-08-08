@@ -2,6 +2,8 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../src/Entities/Path.cpp"
+#include "../src/Entities/Agent.cpp"
+#include <vector>
 
 using namespace std;
 
@@ -19,6 +21,9 @@ class Engine{
         //instantiating objects
         Path path = Path(sf::Vector2f(100.f, 150.f), sf::Vector2f(500.f, 150.f), 20.f);
 
+	//agent container
+	std::vector<Agent> agents;
+
         //mouse position
         sf::Vector2i mouse_position;
         sf::Vector2f mouse_position_view;
@@ -35,4 +40,7 @@ class Engine{
 
         //Accessors
         const bool running() const;
+
+	//custom functions
+	void placeAgent(const sf::Vector2f position);
 };
