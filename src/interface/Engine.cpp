@@ -43,11 +43,14 @@ void Engine::update(){
     this->pollEvent();
     this->mouse_position = sf::Mouse::getPosition(*this->window);
     this->mouse_position_view = this->window->mapPixelToCoords(this->mouse_position);
+
+    for(Agent &agent : this->agents)
+        agent.update(this->path.getBase(), this->path.getDirection(), this->path.getRadius());
 }
 void Engine::render(){
     this->window->clear(sf::Color::Black);
     this->path.render(this->window);
-    for(Agent agent : this->agents)
+    for(Agent &agent : this->agents)
 	    agent.render(this->window);
     this->window->display();
 }
