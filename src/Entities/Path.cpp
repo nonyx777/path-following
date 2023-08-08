@@ -4,10 +4,12 @@ class Path{
 	private:
 		sf::Vector2f base;
 		sf::Vector2f direction;
+		float radius;
 	public:
-		Path(const sf::Vector2f base, const sf::Vector2f direction){
+		Path(const sf::Vector2f base, const sf::Vector2f direction, float radius){
 			this->base = base;
 			this->direction = direction;
+			this->radius = radius;
 		}
 		
 		//main function
@@ -26,10 +28,16 @@ class Path{
 		void setDirection(sf::Vector2f direction){
 			this->direction = direction;
 		}
+		void setRadius(float radius){
+			this->radius = radius;
+		}
 		sf::Vector2f getBase() const {
 			return this->base;
 		}
 		sf::Vector2f getDirection() const{
 			return this->direction;
+		}
+		float getRadius() const{
+			return this->radius;
 		}
 };
