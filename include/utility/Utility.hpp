@@ -34,4 +34,7 @@ class Utility{
 
         //...
         static float _clampOnRange(float x, float min, float max);
+
+        //...
+        static bool _isFar(const sf::Vector2f normal, sf::Vector2f predicted, const float radius);
 };

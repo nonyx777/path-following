@@ -99,3 +99,12 @@ float Utility::_clampOnRange(float x, float min, float max){
     else
         return x;
 }
+
+//...
+bool Utility::_isFar(const sf::Vector2f normal, const sf::Vector2f predicted, const float radius){
+    sf::Vector2f displacement = normal - predicted;
+    float distance = Utility::_distance(displacement);
+    if(distance <= radius)
+        return false;
+    return true;
+}
