@@ -47,8 +47,8 @@ void Engine::update(){
     if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
         this->placeAgent(this->mouse_position_view);
 
-    // for(Agent &agent : this->agents)
-    //     agent.update(this->path.getBase(), this->path.getDirection(), this->path.getRadius());
+    for(Agent &agent : this->agents)
+        agent.update(this->path.points, this->path.getRadius());
 }
 void Engine::render(){
     this->window->clear(sf::Color::Black);

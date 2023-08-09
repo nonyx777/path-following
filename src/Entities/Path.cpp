@@ -5,8 +5,9 @@
 
 class Path{
 	private:
-		std::vector<sf::Vector2f> points;
 		float radius;
+	public:
+		std::vector<sf::Vector2f> points;
 	public:
 		Path(const float radius){
 			this->radius = radius;
