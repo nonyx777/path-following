@@ -19,7 +19,7 @@ class Engine{
         sf::Event event;
 
         //instantiating objects
-        Path path = Path(sf::Vector2f(100.f, 150.f), sf::Vector2f(500.f, 150.f), 20.f);
+        Path path = Path(20.f);
 
 	//agent container
 	std::vector<Agent> agents;

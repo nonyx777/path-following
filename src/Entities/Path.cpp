@@ -1,43 +1,37 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <vector>
 
 class Path{
 	private:
-		sf::Vector2f base;
-		sf::Vector2f direction;
+		std::vector<sf::Vector2f> points;
 		float radius;
 	public:
-		Path(const sf::Vector2f base, const sf::Vector2f direction, float radius){
-			this->base = base;
-			this->direction = direction;
+		Path(const float radius){
 			this->radius = radius;
 		}
 		
 		//main function
 		void render(sf::RenderTarget* target){
-			sf::Vertex path[] = {
-				this->getBase(),
-				this->getDirection()
-			};
-			target->draw(path, 2, sf::Lines);
+			if(this->points.size() < 2)
+				return;
+
+			for(int i = 0; i < this->points.size()-1; i++){
+				sf::Vertex path[] = {
+					this->points[i],
+					this->points[i+1]
+				};
+				target->draw(path, 2, sf::Lines);
+			}
 		}
 
 		//defining accessors and mutators
-		void setBase(sf::Vector2f base){
-			this->base = base;
-		}
-		void setDirection(sf::Vector2f direction){
-			this->direction = direction;
+		void setPoint(sf::Vector2f point){
+			this->points.push_back(point);
 		}
 		void setRadius(float radius){
 			this->radius = radius;
-		}
-		sf::Vector2f getBase() const {
-			return this->base;
-		}
-		sf::Vector2f getDirection() const{
-			return this->direction;
 		}
 		float getRadius() const{
 			return this->radius;
