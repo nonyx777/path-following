@@ -35,6 +35,8 @@ void Engine::pollEvent(){
             case sf::Event::KeyPressed:
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
                     this->path.setPoint(this->mouse_position_view);
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::H))
+                    this->path.display = !this->path.display;
                 break;
         }
     }

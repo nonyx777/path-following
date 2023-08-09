@@ -8,13 +8,18 @@ class Path{
 		float radius;
 	public:
 		std::vector<sf::Vector2f> points;
+		bool display;
 	public:
 		Path(const float radius){
 			this->radius = radius;
+			this->display = true;
 		}
 		
 		//main function
 		void render(sf::RenderTarget* target){
+			if(this->display == false)
+				return;
+
 			if(this->points.size() < 2)
 				return;
 
