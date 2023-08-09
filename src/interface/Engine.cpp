@@ -32,10 +32,6 @@ void Engine::pollEvent(){
             case sf::Event::Closed:
                 this->window->close();
                 break;
-	    case sf::Event::MouseButtonPressed:
-		if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
-			this->placeAgent(this->mouse_position_view);
-		break;
         }
     }
 }
@@ -43,6 +39,9 @@ void Engine::update(){
     this->pollEvent();
     this->mouse_position = sf::Mouse::getPosition(*this->window);
     this->mouse_position_view = this->window->mapPixelToCoords(this->mouse_position);
+
+    if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        this->placeAgent(this->mouse_position_view);
 
     for(Agent &agent : this->agents)
         agent.update(this->path.getBase(), this->path.getDirection(), this->path.getRadius());
