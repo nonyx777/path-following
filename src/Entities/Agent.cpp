@@ -8,7 +8,6 @@
 class Agent{
     private:
         sf::Vector2f velocity, acceleration, predicted, target, normal;
-        Path normal_path = Path(sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), 1.f);
 
     public:
         sf::CircleShape agent_property;
@@ -31,9 +30,6 @@ class Agent{
             sf::Vector2f from_start_to_predicted = this->predicted - start;
             this->normal = Utility::_vectorProjection(from_start_to_predicted, path_direction);
             this->normal += start;
-
-            // this->normal_path.setBase(this->agent_property.getPosition());
-            // this->normal_path.setDirection(this->target);
 
             sf::Vector2f target_direction = Utility::_unitVector(path_direction) * 2.f;
             this->target = this->normal + target_direction;
