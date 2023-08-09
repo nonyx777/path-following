@@ -39,17 +39,17 @@ class Agent{
                 path_direction = path_end - path_start;
                 sf::Vector2f from_start_to_predicted = this->predicted - path_start;
                 this->normal = Utility::_vectorProjection(from_start_to_predicted, path_direction);
+                this->normal += path_start;
 
                 //checking if normal point in on the path
-                // if(this->normal.x < path_start.x)
-                //     this->normal = path_start;
+                if(this->normal.x < path_start.x)
+                    this->normal = path_start;
                 if(this->normal.x > path_end.x)
                     this->normal = path_end;
                 //check which normal point is the closest
                 float distance_normal = Utility::_magnitude(Utility::_displacement(this->predicted, this->normal));
                 if(distance_normal < max_distance_normal){
                     max_distance_normal = distance_normal;
-                    this->normal += path_start;
                     this->target = this->normal;
                 }
             }
