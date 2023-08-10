@@ -28,6 +28,7 @@ class Path{
 					this->points[i],
 					this->points[i+1]
 				};
+				path->color = sf::Color(sf::Color::Red);
 				target->draw(path, 2, sf::Lines);
 			}
 		}

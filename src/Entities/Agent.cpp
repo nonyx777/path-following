@@ -42,9 +42,7 @@ class Agent{
                 this->normal += path_start;
 
                 //checking if normal point in on the path
-                if(this->normal.x < path_start.x)
-                    this->normal = path_start;
-                if(this->normal.x > path_end.x)
+                if(this->normal.x < path_start.x || this->normal.x > path_end.x)
                     this->normal = path_end;
                 //check which normal point is the closest
                 float distance_normal = Utility::_magnitude(Utility::_displacement(this->predicted, this->normal));
@@ -53,13 +51,10 @@ class Agent{
                     this->target = this->normal;
                 }
             }
-            // sf::Vector2f target_direction = Utility::_unitVector(path_direction) * 2.f;
 
             if(Utility::_isFar(this->normal, this->predicted, radius))
-                // this->agent_property.move(this->target - this->agent_property.getPosition());
                 this->steer(this->target);
             else
-                // this->agent_property.move(this->predicted - this->agent_property.getPosition());
                 this->steer(this->predicted);
         }
         void render(sf::RenderTarget* target){
