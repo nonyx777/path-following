@@ -5,8 +5,8 @@ void Engine::initVariables(){
     this->window = nullptr;
 }
 void Engine::initWindow(){
-    this->video_mode.width = 600;
-    this->video_mode.height = 300;
+    this->video_mode.width = 800;
+    this->video_mode.height = 600;
     this->window = new sf::RenderWindow(this->video_mode, "Path-Follow", sf::Style::Titlebar | sf::Style::Resize | sf::Style::Close);
     this->window->setFramerateLimit(60);
 }
